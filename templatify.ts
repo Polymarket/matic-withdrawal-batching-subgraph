@@ -4,7 +4,7 @@ import Handlebars = require('handlebars');
 import fs = require('fs-extra');
 import path = require('path');
 
-Handlebars.registerHelper('lowercase', function (str) {
+Handlebars.registerHelper('lowercase', (str) => {
   if (str && typeof str === 'string') {
     return str.toLowerCase();
   }
@@ -49,5 +49,6 @@ function getNetworkNameForSubgraph(): string | null {
     );
   }
 
+  // eslint-disable-next-line no-console
   console.log('🎉 subgraph successfully generated\n');
 })();
