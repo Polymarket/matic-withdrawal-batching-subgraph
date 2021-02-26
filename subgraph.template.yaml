@@ -1,0 +1,32 @@
+specVersion: 0.0.2
+description: A low cost non-custodial method for withdrawing many user's tokens from Matic to Ethereum.
+repository: https://github.com/TokenUnion/matic-withdrawal-batching-subgraph
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: ChildWithdrawalBatcher
+    network: '{{networkName}}'
+    source:
+      address: '{{contracts.ChildWithdrawalBatcher.address}}'
+      abi: ChildWithdrawalBatcher
+      startBlock: {{contracts.ChildWithdrawalBatcher.startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.3
+      language: wasm/assemblyscript
+      entities:
+        - Global
+        - BatchedWithdrawal
+        - RecipientBalance
+      abis:
+        - name: ChildWithdrawalBatcher
+          file: ./abis/ChildWithdrawalBatcher.json
+      eventHandlers:
+        - event: Deposit(indexed address,indexed address,uint256)
+          handler: handleDeposit
+        - event: Withdrawal(indexed address,indexed address,uint256)
+          handler: handleWithdraw
+        - event: BridgedWithdrawals(indexed address,bytes32[],uint256)
+          handler: handleBridgedWithdrawals
+      file: ./src/ChildWithdrawalBatcher.ts

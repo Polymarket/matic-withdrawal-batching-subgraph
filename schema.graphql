@@ -1,0 +1,30 @@
+type Global @entity {
+  "ID is empty string, this is a singleton"
+  id: ID!
+  "Number of batches of withdrawals which have been processed"
+  batches: Int!
+  "Number of withdrawals which have been processed"
+  withdrawals: Int!
+  "Total volume of withdrawals which have been processed"
+  totalVolume: BigInt!
+}
+
+type RecipientBalance @entity {
+  "Address of the recipient"
+  id: ID!
+  "Current balance of recipient ready for inclusion in a withdrawal"
+  currentBalance: BigInt!
+}
+
+type BatchedWithdrawal @entity {
+  "Transaction hash of bridging transaction"
+  id: ID!
+  "Account which triggered with batched withdrawal"
+  bridger: Bytes!
+  "Amount of tokens withdrawn in this batch"
+  amount: BigInt!
+  "Number of withdrawals which have been processed in this batch"
+  withdrawals: Int!
+  "Timestamp at which transaction occurred"
+  timestamp: BigInt!
+}

@@ -1,0 +1,45 @@
+{
+  "name": "@polymarket/matic-withdrawal-batching-subgraph",
+  "version": "1.0.0",
+  "description": "Subgraph to track pending withdrawals to be batched",
+  "scripts": {
+    "auth": "graph auth https://api.thegraph.com/deploy/",
+    "deploy:matic": "SUBGRAPH=TokenUnion/withdrawal-batching yarn deploy",
+    "deploy:mumbai": "SUBGRAPH=TokenUnion/withdrawal-batching-mumbai yarn deploy",
+    "codegen": "graph codegen --debug --output-dir src/types/",
+    "prepare:matic": "NETWORK_NAME=matic ts-node ./templatify.ts && yarn codegen",
+    "prepare:mumbai": "NETWORK_NAME=mumbai ts-node ./templatify.ts && yarn codegen",
+    "publish-graph:matic": "yarn prepare:matic && yarn deploy:matic",
+    "publish-graph:mumbai": "yarn prepare:mumbai && yarn deploy:mumbai"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TokenUnion/matic-withdrawal-batching-subgraph.git"
+  },
+  "contributors": [
+    {
+      "name": "Tom French",
+      "url": "https://github.com/tomafrench"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TokenUnion/matic-withdrawal-batching-subgraph/issues"
+  },
+  "homepage": "https://github.com/TokenUnion/matic-withdrawal-batching-subgraph#readme",
+  "dependencies": {
+    "@graphprotocol/graph-ts": "^0.18.1"
+  },
+  "devDependencies": {
+    "@graphprotocol/graph-cli": "^0.18.0",
+    "@types/fs-extra": "^9.0.2",
+    "@types/js-yaml": "^3.12.5",
+    "eslint": "^7.10.0",
+    "eslint-config-airbnb-base-typescript-prettier": "^3.1.0",
+    "fs-extra": "^8.1.0",
+    "handlebars": "^4.7.6",
+    "prettier": "^2.1.2",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.3"
+  }
+}

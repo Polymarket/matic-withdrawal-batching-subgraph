@@ -1,0 +1,13 @@
+matic:
+  contracts:
+    # TODO: Update with actual values from deployment
+    ChildWithdrawalBatcher:
+      address: '0xF65C4C70463676DC2e0834e8b64261F802e63183'
+      transactionHash: '0x1b77481ad48675f1e5bf8ebe29c4820f89f395d4352b190419e7d82a6c464f52'
+      startBlock: 10335083
+mumbai:
+  contracts:
+    ChildWithdrawalBatcher:
+      address: '0xF65C4C70463676DC2e0834e8b64261F802e63183'
+      transactionHash: '0x1b77481ad48675f1e5bf8ebe29c4820f89f395d4352b190419e7d82a6c464f52'
+      startBlock: 10335083
