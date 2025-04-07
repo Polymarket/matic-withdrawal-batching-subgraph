@@ -14,9 +14,9 @@ Handlebars.registerHelper('lowercase', (str) => {
 function getNetworkNameForSubgraph(): string | null {
   switch (process.env.SUBGRAPH) {
     case undefined:
-    case 'TokenUnion/withdrawal-batching':
+    case 'Polymarket/withdrawal-batching':
       return 'matic';
-    case 'TokenUnion/withdrawal-batching-mumbai':
+    case 'Polymarket/withdrawal-batching-mumbai':
       return 'mumbai';
     default:
       return null;
