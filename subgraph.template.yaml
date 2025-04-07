@@ -1,6 +1,6 @@
 specVersion: 0.0.2
 description: A low cost non-custodial method for withdrawing many user's tokens from Matic to Ethereum.
-repository: https://github.com/TokenUnion/matic-withdrawal-batching-subgraph
+repository: https://github.com/Polymarket/matic-withdrawal-batching-subgraph
 schema:
   file: ./schema.graphql
 dataSources:

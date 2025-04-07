@@ -1,6 +1,6 @@
 # Matic Withdrawal Batching Subgraph
 
-This subgraph is tracks a deployment of the [Matic Bridge Batcher](https://github.com/TokenUnion/matic-bridge-batcher) contracts in order to help decide when a batch of withdrawals is ready to be processed and then facilitate this processing.
+This subgraph is tracks a deployment of the [Matic Bridge Batcher](https://github.com/Polymarket/matic-bridge-batcher) contracts in order to help decide when a batch of withdrawals is ready to be processed and then facilitate this processing.
 
 ## Usage
 
